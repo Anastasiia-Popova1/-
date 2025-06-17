@@ -1,4 +1,5 @@
-namespace Курсова_робота
+
+namespace Курсова_робота.Forms
 {
 
     internal static class Program

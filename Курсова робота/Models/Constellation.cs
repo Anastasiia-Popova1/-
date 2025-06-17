@@ -10,16 +10,24 @@ namespace Курсова_робота.Models
     internal class Constellation
     {
         public static List<Constellation> Constellations = new List<Constellation>();
-        public static BindingList<Constellation> Constellationss = new BindingList<Constellation>();
         public string Name { get; set; }
-        public string Hemisphere { get; set; }
-        public int StarCount { get; set; } 
+        public int AllStars { get; set; }
+
+        public int StarCount
+        {
+            get
+            {   
+                return Star.Stars
+                   .Where(s => s.Constellation == this.Name)
+                   .Count();
+            }
+        }
         public List<string> StarNames { get; set; } = new List<string>();
         public string NotableObjects { get; set; }
         public bool Zodiac { get; set; }
 
-        
-        public static List<Constellation> GetDefaultList()
+
+        public static BindingList<Constellation> GetDefaultList()
         {
             string[] names = new string[]
         {
@@ -41,24 +49,35 @@ namespace Курсова_робота.Models
                 "Терези", "Скорпіон", "Стрілець", "Козеріг", "Водолій", "Риби"
             };
 
-            return names.Select(name => new Constellation
+            return new BindingList<Constellation>(
+            names.Select(name => new Constellation
             {
                 Name = name,
-                Hemisphere = "",
                 NotableObjects = "",
                 StarNames = new List<string>(),
                 Zodiac = zodiacNames.Contains(name)
-            }).ToList();
+            }).ToList()
+            );
         }
 
         public static void InitializeData()
         {
 
             var list = GetDefaultList();
-            Constellations.Clear();
-            foreach (var c in list)
-                Constellations.Add(c);
 
+            foreach (var c in list)
+            {
+                var existing = Constellations.FirstOrDefault(x => x.Name == c.Name);
+                if (existing != null)
+                {
+                    c.AllStars = existing.AllStars;
+                    c.NotableObjects = existing.NotableObjects;
+                }
+            }
+
+            Constellations.Clear();
+            Constellations.AddRange(list);
+            
             foreach (var constellation in Constellations)
             {
                 var matchedStars = Star.Stars
@@ -66,13 +85,16 @@ namespace Курсова_робота.Models
                     .Select(s => s.Name)
                     .ToList();
                 constellation.StarNames = matchedStars;
-                constellation.StarCount = constellation.StarNames.Count;
             }
 
         }
-
-
-
+        public string StarNamesString
+        {
+            get => string.Join(", ", StarNames);
+            set => StarNames = value.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                                    .Select(s => s.Trim())
+                                    .ToList();
+        }
 
     }
 
