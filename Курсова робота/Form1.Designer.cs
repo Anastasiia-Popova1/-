@@ -33,6 +33,9 @@ namespace Курсова_робота
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             Add = new Button();
             dataGridView1 = new DataGridView();
             colImg = new DataGridViewImageColumn();
@@ -54,6 +57,13 @@ namespace Курсова_робота
             calendar = new Button();
             panel1 = new Panel();
             panel2 = new Panel();
+            dataGridView2 = new DataGridView();
+            Names = new DataGridViewTextBoxColumn();
+            Hermisphere = new DataGridViewTextBoxColumn();
+            StarCount = new DataGridViewTextBoxColumn();
+            StarNames = new DataGridViewTextBoxColumn();
+            NotableObjects = new DataGridViewTextBoxColumn();
+            Zodiac = new DataGridViewTextBoxColumn();
             label5 = new Label();
             comboSearchBy = new ComboBox();
             txtSearchAll = new TextBox();
@@ -75,6 +85,8 @@ namespace Курсова_робота
             openFileDialog1 = new OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbPhoto).BeginInit();
             SuspendLayout();
             // 
@@ -129,7 +141,7 @@ namespace Курсова_робота
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.RowHeadersWidth = 72;
-            dataGridView1.Size = new Size(1447, 522);
+            dataGridView1.Size = new Size(1447, 629);
             dataGridView1.TabIndex = 6;
             // 
             // colImg
@@ -265,7 +277,7 @@ namespace Курсова_робота
             comboBox1.Font = new Font("Segoe UI", 10F);
             comboBox1.ForeColor = SystemColors.InactiveCaptionText;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Андромеда  ", "Близнята  ", "Велика Ведмедиця  ", "Великий Пес  ", "Візничий  ", "Вітрила  ", "Вовк  ", "Водолій  ", "Волопас  ", "Волосся Вероніки  ", "Ворон  ", "Геркулес  ", "Гідра  ", "Годинник  ", "Голуб  ", "Гончі Пси  ", "Дельфін  ", "Діва  ", "Дракон  ", "Ерідан  ", "Єдиноріг  ", "Жертовник  ", "Живописець  ", "Жираф  ", "Журавель  ", "Заєць  ", "Змієносець  ", "Змія  ", "Золота Риба  ", "Індіанець  ", "Кассіопея  ", "Кит  ", "Кіль  ", "Козоріг  ", "Компас  ", "Корма  ", "Косинець  ", "Лебідь  ", "Лев  ", "Летюча Риба  ", "Лисичка  ", "Ліра  ", "Мала Ведмедиця  ", "Малий Кінь  ", "Малий Лев  ", "Малий Пес  ", "Мікроскоп  ", "Муха  ", "Насос  ", "Овен  ", "Октант  ", "Орел  ", "Оріон  ", "Павич  ", "Пегас  ", "Персей  ", "Південна Гідра  ", "Південна Корона  ", "Південна Риба  ", "Південний Трикутник  ", "Південний Хрест  ", "Північна Корона  ", "Піч  ", "Райський Птах  ", "Рак  ", "Риби  ", "Рись  ", "Різець  ", "Секстант  ", "Сітка  ", "Скорпіон  ", "Скульптор  ", "Столова Гора  ", "Стріла  ", "Стрілець  ", "Телескоп  ", "Телець  ", "Терези  ", "Трикутник  ", "Тукан  ", "Фенікс  ", "Хамелеон  ", "Центавр  ", "Цефей  ", "Циркуль  ", "Чаша  ", "Щит  ", "Ящірка" });
+            comboBox1.Items.AddRange(new object[] { "Андромеда", "Близнята", "Велика Ведмедиця", "Великий Пес", "Візничий", "Вітрила", "Вовк", "Водолій", "Волопас", "Волосся Вероніки", "Ворон", "Геркулес", "Гідра", "Годинник", "Голуб", "Гончі Пси", "Дельфін", "Діва", "Дракон", "Ерідан", "Єдиноріг", "Жертовник", "Живописець", "Жираф", "Журавель", "Заєць", "Змієносець", "Змія", "Золота Риба", "Індіанець", "Кассіопея", "Кит", "Кіль", "Козеріг", "Компас", "Корма", "Косинець", "Лебідь", "Лев", "Летюча Риба", "Лисичка", "Ліра", "Мала Ведмедиця", "Малий Кінь", "Малий Лев", "Малий Пес", "Мікроскоп", "Муха", "Насос", "Овен", "Октант", "Орел", "Оріон", "Павич", "Пегас", "Персей", "Південна Гідра", "Південна Корона", "Південна Риба", "Південний Трикутник", "Південний Хрест", "Північна Корона", "Піч", "Райський Птах", "Рак", "Риби", "Рись", "Різець", "Секстант", "Сітка", "Скорпіон", "Скульптор", "Столова Гора", "Стріла", "Стрілець", "Телескоп", "Телець", "Терези", "Трикутник", "Тукан", "Фенікс", "Хамелеон", "Центавр", "Цефей", "Циркуль", "Чаша", "Щит", "Ящірка" });
             comboBox1.Location = new Point(308, 473);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(224, 39);
@@ -288,7 +300,7 @@ namespace Курсова_робота
             addStars.BackColor = Color.DarkSlateBlue;
             addStars.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             addStars.ForeColor = SystemColors.Control;
-            addStars.Location = new Point(497, 65);
+            addStars.Location = new Point(486, 55);
             addStars.Name = "addStars";
             addStars.Size = new Size(333, 66);
             addStars.TabIndex = 13;
@@ -301,7 +313,7 @@ namespace Курсова_робота
             constellationInf.BackColor = Color.DarkSlateBlue;
             constellationInf.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             constellationInf.ForeColor = SystemColors.Control;
-            constellationInf.Location = new Point(887, 65);
+            constellationInf.Location = new Point(876, 55);
             constellationInf.Name = "constellationInf";
             constellationInf.Size = new Size(333, 66);
             constellationInf.TabIndex = 14;
@@ -314,7 +326,7 @@ namespace Курсова_робота
             calendar.BackColor = Color.DarkSlateBlue;
             calendar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             calendar.ForeColor = SystemColors.Control;
-            calendar.Location = new Point(1273, 65);
+            calendar.Location = new Point(1262, 55);
             calendar.Name = "calendar";
             calendar.Size = new Size(333, 66);
             calendar.TabIndex = 15;
@@ -359,10 +371,104 @@ namespace Курсова_робота
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Controls.Add(dataGridView2);
+            panel2.ForeColor = SystemColors.ActiveBorder;
             panel2.Location = new Point(0, 3);
             panel2.Name = "panel2";
             panel2.Size = new Size(2068, 807);
             panel2.TabIndex = 36;
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.BackgroundColor = SystemColors.ControlLightLight;
+            dataGridView2.BorderStyle = BorderStyle.Fixed3D;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 11.5F);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Names, Hermisphere, StarCount, StarNames, NotableObjects, Zodiac });
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.Black;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11.5F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ActiveBorder;
+            dataGridViewCellStyle5.SelectionBackColor = Color.Black;
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dataGridView2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridView2.GridColor = SystemColors.ControlLightLight;
+            dataGridView2.Location = new Point(349, 152);
+            dataGridView2.Name = "dataGridView2";
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11.5F);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.Desktop;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridView2.RowHeadersWidth = 72;
+            dataGridView2.Size = new Size(1458, 608);
+            dataGridView2.TabIndex = 0;
+            // 
+            // Names
+            // 
+            Names.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Names.DataPropertyName = "Name";
+            Names.HeaderText = "Назва";
+            Names.MinimumWidth = 9;
+            Names.Name = "Names";
+            Names.Width = 131;
+            // 
+            // Hermisphere
+            // 
+            Hermisphere.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Hermisphere.DataPropertyName = "Hemisphere";
+            Hermisphere.HeaderText = "Півкуля";
+            Hermisphere.MinimumWidth = 9;
+            Hermisphere.Name = "Hermisphere";
+            Hermisphere.Width = 152;
+            // 
+            // StarCount
+            // 
+            StarCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            StarCount.DataPropertyName = "StarCount";
+            StarCount.HeaderText = "Кількість зірок";
+            StarCount.MinimumWidth = 9;
+            StarCount.Name = "StarCount";
+            StarCount.Width = 237;
+            // 
+            // StarNames
+            // 
+            StarNames.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            StarNames.DataPropertyName = "StarNames";
+            StarNames.HeaderText = "Назви зірок";
+            StarNames.MinimumWidth = 9;
+            StarNames.Name = "StarNames";
+            StarNames.Width = 204;
+            // 
+            // NotableObjects
+            // 
+            NotableObjects.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            NotableObjects.DataPropertyName = "NotableObjects";
+            NotableObjects.HeaderText = "Об'єкти сузір'я";
+            NotableObjects.MinimumWidth = 9;
+            NotableObjects.Name = "NotableObjects";
+            NotableObjects.Width = 239;
+            // 
+            // Zodiac
+            // 
+            Zodiac.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Zodiac.DataPropertyName = "Zodiac";
+            Zodiac.HeaderText = "Зодіакальність";
+            Zodiac.MinimumWidth = 9;
+            Zodiac.Name = "Zodiac";
+            Zodiac.Width = 240;
             // 
             // label5
             // 
@@ -592,6 +698,8 @@ namespace Курсова_робота
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbPhoto).EndInit();
             ResumeLayout(false);
         }
@@ -640,5 +748,12 @@ namespace Курсова_робота
         private ComboBox comboSearchBy;
         private Label label5;
         private Panel panel2;
+        private DataGridView dataGridView2;
+        private DataGridViewTextBoxColumn Names;
+        private DataGridViewTextBoxColumn Hermisphere;
+        private DataGridViewTextBoxColumn StarCount;
+        private DataGridViewTextBoxColumn StarNames;
+        private DataGridViewTextBoxColumn NotableObjects;
+        private DataGridViewTextBoxColumn Zodiac;
     }
 }

@@ -17,6 +17,8 @@ namespace Курсова_робота
         {
             InitializeComponent();
             InitializeGrid();
+            Constellation.InitializeData();
+            dataGridView2.DataSource = Constellation.Constellations;
             panel1.Visible = true;
             panel2.Visible = false;
             //panel3.Visible = false;
@@ -24,8 +26,10 @@ namespace Курсова_робота
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            Grid_formatted();
         }
+
+
         private void addStars_Click(object sender, EventArgs e)
         {
             panel1.Visible = true;
@@ -125,6 +129,8 @@ namespace Курсова_робота
             RefreshGrid();
             UpdateComboBoxStars();
             UpdateComboBoxStars2();
+            Constellation.InitializeData();
+            Grid_formatted();
 
             txtName.Text = "";
             txtMagnitude.Text = "";
@@ -230,6 +236,8 @@ namespace Курсова_робота
                 RefreshGrid();
                 UpdateComboBoxStars();
                 UpdateComboBoxStars2();
+                Constellation.InitializeData();
+                Grid_formatted();
 
                 comboBoxStard.SelectedIndex = -1;
             }
@@ -348,6 +356,7 @@ namespace Курсова_робота
                 double.Parse(txtRadius.Text),
                 pbPhoto.Image
             );
+
             txtName.Text = "";
             txtMagnitude.Text = "";
             txtDistance.Text = "";
@@ -363,6 +372,8 @@ namespace Курсова_робота
             RefreshGrid();
             UpdateComboBoxStars();
             UpdateComboBoxStars2();
+            Constellation.InitializeData();
+            Grid_formatted();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -415,10 +426,26 @@ namespace Курсова_робота
 
         private void constellationInf_Click(object sender, EventArgs e)
         {
-            panel1.Visible = false;
             panel2.Visible = true;
-            //panel3.Visible = false;
+            //panel3.Visible = false; 
         }
+
+        private void Grid_formatted()
+        {
+            var constellations = Constellation.Constellations;
+            var displayList = constellations.Select(c => new
+            {
+                c.Name,
+                c.Hemisphere,
+                StarCount = c.StarCount == 0 ? "" : c.StarCount.ToString(),
+                StarNames = string.Join(", ", c.StarNames),
+                c.NotableObjects,
+                Zodiac = c.Zodiac ? "Так" : "Ні"
+            }).ToList();
+
+            dataGridView2.DataSource = displayList;
+        }
+
 
 
     }

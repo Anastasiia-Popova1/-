@@ -84,19 +84,6 @@ namespace Курсова_робота.Models
                 }
             }
         }
-
-        private static string FormatCoordinates(string coordinates)
-        {
-            return coordinates
-                .ToLower()
-                .Replace("°", "")
-                .Replace("′", "")
-                .Replace("″", "")
-                .Replace("  ", " ")
-                .Trim()
-                .Replace(" ", ",");
-        }
-
         public static List<Star> SearchStars(string field, string value)
         {  
             value = value.ToLower().Trim();
