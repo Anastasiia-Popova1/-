@@ -39,6 +39,17 @@ namespace Курсова_робота
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             Add = new Button();
             dataGridView1 = new DataGridView();
+            colImg = new DataGridViewImageColumn();
+            colImagePath = new DataGridViewTextBoxColumn();
+            colName = new DataGridViewTextBoxColumn();
+            colCol = new DataGridViewTextBoxColumn();
+            colConstellation = new DataGridViewTextBoxColumn();
+            colMagnitude = new DataGridViewTextBoxColumn();
+            colMass = new DataGridViewTextBoxColumn();
+            colRad = new DataGridViewTextBoxColumn();
+            coldistance = new DataGridViewTextBoxColumn();
+            colCoordinates = new DataGridViewTextBoxColumn();
+            ColRightAscension = new DataGridViewTextBoxColumn();
             txtName = new TextBox();
             txtDistance = new TextBox();
             txtCoordinates = new TextBox();
@@ -49,6 +60,13 @@ namespace Курсова_робота
             panel1 = new Panel();
             panel2 = new Panel();
             dataGridView2 = new DataGridView();
+            Change = new DataGridViewButtonColumn();
+            Names = new DataGridViewTextBoxColumn();
+            AllStars = new DataGridViewTextBoxColumn();
+            StarCount = new DataGridViewTextBoxColumn();
+            StarNamesString = new DataGridViewTextBoxColumn();
+            NotableObjects = new DataGridViewTextBoxColumn();
+            Zodiac = new DataGridViewTextBoxColumn();
             label21 = new Label();
             label20 = new Label();
             btnUnload = new Button();
@@ -91,24 +109,6 @@ namespace Курсова_робота
             comboColor = new ComboBox();
             comboBoxStard = new ComboBox();
             openFileDialog1 = new OpenFileDialog();
-            Zodiac = new DataGridViewTextBoxColumn();
-            NotableObjects = new DataGridViewTextBoxColumn();
-            StarNamesString = new DataGridViewTextBoxColumn();
-            StarCount = new DataGridViewTextBoxColumn();
-            AllStars = new DataGridViewTextBoxColumn();
-            Names = new DataGridViewTextBoxColumn();
-            Change = new DataGridViewButtonColumn();
-            colImg = new DataGridViewImageColumn();
-            colImagePath = new DataGridViewTextBoxColumn();
-            colName = new DataGridViewTextBoxColumn();
-            colCol = new DataGridViewTextBoxColumn();
-            colConstellation = new DataGridViewTextBoxColumn();
-            colMagnitude = new DataGridViewTextBoxColumn();
-            colMass = new DataGridViewTextBoxColumn();
-            colRad = new DataGridViewTextBoxColumn();
-            coldistance = new DataGridViewTextBoxColumn();
-            colCoordinates = new DataGridViewTextBoxColumn();
-            ColRightAscension = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -149,12 +149,12 @@ namespace Курсова_робота
             dataGridViewCellStyle2.BackColor = SystemColors.InactiveCaptionText;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle2.ForeColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle2.SelectionBackColor = Color.RoyalBlue;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Black;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.GridColor = Color.White;
-            dataGridView1.Location = new Point(603, 129);
+            dataGridView1.Location = new Point(603, 135);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -166,9 +166,123 @@ namespace Курсова_робота
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 72;
-            dataGridView1.Size = new Size(1619, 797);
+            dataGridView1.Size = new Size(1567, 797);
             dataGridView1.TabIndex = 6;
+            // 
+            // colImg
+            // 
+            colImg.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            colImg.DataPropertyName = "Image";
+            colImg.HeaderText = "Зображення";
+            colImg.MinimumWidth = 9;
+            colImg.Name = "colImg";
+            colImg.ReadOnly = true;
+            colImg.Resizable = DataGridViewTriState.True;
+            colImg.SortMode = DataGridViewColumnSortMode.Automatic;
+            colImg.Width = 174;
+            // 
+            // colImagePath
+            // 
+            colImagePath.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colImagePath.DataPropertyName = "ImagePath";
+            colImagePath.HeaderText = "";
+            colImagePath.MinimumWidth = 9;
+            colImagePath.Name = "colImagePath";
+            colImagePath.ReadOnly = true;
+            colImagePath.Visible = false;
+            // 
+            // colName
+            // 
+            colName.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            colName.DataPropertyName = "Name";
+            colName.HeaderText = "Назва";
+            colName.MinimumWidth = 9;
+            colName.Name = "colName";
+            colName.ReadOnly = true;
+            colName.Width = 111;
+            // 
+            // colCol
+            // 
+            colCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            colCol.DataPropertyName = "Color";
+            colCol.HeaderText = "Колір";
+            colCol.MinimumWidth = 9;
+            colCol.Name = "colCol";
+            colCol.ReadOnly = true;
+            colCol.Width = 106;
+            // 
+            // colConstellation
+            // 
+            colConstellation.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            colConstellation.DataPropertyName = "Constellation";
+            colConstellation.HeaderText = "Сузір'я";
+            colConstellation.MinimumWidth = 9;
+            colConstellation.Name = "colConstellation";
+            colConstellation.ReadOnly = true;
+            colConstellation.Width = 119;
+            // 
+            // colMagnitude
+            // 
+            colMagnitude.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            colMagnitude.DataPropertyName = "ApparentMagnitude";
+            colMagnitude.HeaderText = "Зоряна величина";
+            colMagnitude.MinimumWidth = 9;
+            colMagnitude.Name = "colMagnitude";
+            colMagnitude.ReadOnly = true;
+            colMagnitude.Width = 203;
+            // 
+            // colMass
+            // 
+            colMass.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            colMass.DataPropertyName = "Mass";
+            colMass.FillWeight = 64F;
+            colMass.HeaderText = "Маса (M⊙)";
+            colMass.MinimumWidth = 9;
+            colMass.Name = "colMass";
+            colMass.ReadOnly = true;
+            colMass.Width = 148;
+            // 
+            // colRad
+            // 
+            colRad.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            colRad.DataPropertyName = "Radius";
+            colRad.HeaderText = "Радіус (R⊙)";
+            colRad.MinimumWidth = 9;
+            colRad.Name = "colRad";
+            colRad.ReadOnly = true;
+            colRad.Width = 149;
+            // 
+            // coldistance
+            // 
+            coldistance.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            coldistance.DataPropertyName = "Distance";
+            coldistance.HeaderText = "Відстань (світ. р)";
+            coldistance.MinimumWidth = 9;
+            coldistance.Name = "coldistance";
+            coldistance.ReadOnly = true;
+            coldistance.Width = 177;
+            // 
+            // colCoordinates
+            // 
+            colCoordinates.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            colCoordinates.DataPropertyName = "Coordinates";
+            colCoordinates.HeaderText = "Схилення (° ′ ″)";
+            colCoordinates.MinimumWidth = 9;
+            colCoordinates.Name = "colCoordinates";
+            colCoordinates.ReadOnly = true;
+            colCoordinates.Width = 163;
+            // 
+            // ColRightAscension
+            // 
+            ColRightAscension.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            ColRightAscension.DataPropertyName = "RightAscension";
+            ColRightAscension.HeaderText = "Пряме піднесення (°)";
+            ColRightAscension.MinimumWidth = 9;
+            ColRightAscension.Name = "ColRightAscension";
+            ColRightAscension.ReadOnly = true;
+            ColRightAscension.Width = 212;
             // 
             // txtName
             // 
@@ -207,6 +321,8 @@ namespace Курсова_робота
             comboBox1.Font = new Font("Segoe UI", 10F);
             comboBox1.ForeColor = SystemColors.InactiveCaptionText;
             comboBox1.FormattingEnabled = true;
+            comboBox1.IntegralHeight = false;
+            comboBox1.ItemHeight = 31;
             comboBox1.Items.AddRange(new object[] { "Андромеда", "Близнята", "Велика Ведмедиця", "Великий Пес", "Візничий", "Вітрила", "Вовк", "Водолій", "Волопас", "Волосся Вероніки", "Ворон", "Геркулес", "Гідра", "Годинник", "Голуб", "Гончі Пси", "Дельфін", "Діва", "Дракон", "Ерідан", "Єдиноріг", "Жертовник", "Живописець", "Жираф", "Журавель", "Заєць", "Змієносець", "Змія", "Золота Риба", "Індіанець", "Кассіопея", "Кит", "Кіль", "Козеріг", "Компас", "Корма", "Косинець", "Лебідь", "Лев", "Летюча Риба", "Лисичка", "Ліра", "Мала Ведмедиця", "Малий Кінь", "Малий Лев", "Малий Пес", "Мікроскоп", "Муха", "Насос", "Овен", "Октант", "Орел", "Оріон", "Павич", "Пегас", "Персей", "Південна Гідра", "Південна Корона", "Південна Риба", "Південний Трикутник", "Південний Хрест", "Північна Корона", "Піч", "Райський Птах", "Рак", "Риби", "Рись", "Різець", "Секстант", "Сітка", "Скорпіон", "Скульптор", "Столова Гора", "Стріла", "Стрілець", "Телескоп", "Телець", "Терези", "Трикутник", "Тукан", "Фенікс", "Хамелеон", "Центавр", "Цефей", "Циркуль", "Чаша", "Щит", "Ящірка" });
             comboBox1.Location = new Point(299, 632);
             comboBox1.Name = "comboBox1";
@@ -342,7 +458,7 @@ namespace Курсова_робота
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
             dataGridView2.DefaultCellStyle = dataGridViewCellStyle6;
             dataGridView2.GridColor = SystemColors.ControlLightLight;
-            dataGridView2.Location = new Point(427, 59);
+            dataGridView2.Location = new Point(529, 36);
             dataGridView2.Name = "dataGridView2";
             dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = SystemColors.ControlLightLight;
@@ -352,10 +468,87 @@ namespace Курсова_робота
             dataGridViewCellStyle7.SelectionForeColor = SystemColors.Desktop;
             dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
             dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridView2.RowHeadersVisible = false;
             dataGridView2.RowHeadersWidth = 72;
-            dataGridView2.Size = new Size(1595, 856);
+            dataGridView2.Size = new Size(1542, 905);
             dataGridView2.TabIndex = 0;
             dataGridView2.CellContentClick += dataGridView2_CellContentClick;
+            // 
+            // Change
+            // 
+            Change.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.Black;
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.Black;
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            Change.DefaultCellStyle = dataGridViewCellStyle5;
+            Change.HeaderText = "...";
+            Change.MinimumWidth = 9;
+            Change.Name = "Change";
+            Change.Text = "...";
+            Change.UseColumnTextForButtonValue = true;
+            Change.Width = 41;
+            // 
+            // Names
+            // 
+            Names.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Names.DataPropertyName = "Name";
+            Names.HeaderText = "Назва";
+            Names.MinimumWidth = 9;
+            Names.Name = "Names";
+            Names.ReadOnly = true;
+            Names.Width = 131;
+            // 
+            // AllStars
+            // 
+            AllStars.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            AllStars.DataPropertyName = "AllStars";
+            AllStars.HeaderText = "Вся кількість зірок";
+            AllStars.MinimumWidth = 9;
+            AllStars.Name = "AllStars";
+            AllStars.ReadOnly = true;
+            AllStars.Width = 257;
+            // 
+            // StarCount
+            // 
+            StarCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            StarCount.DataPropertyName = "StarCount";
+            StarCount.HeaderText = "Кількість доданих зірок";
+            StarCount.MinimumWidth = 9;
+            StarCount.Name = "StarCount";
+            StarCount.ReadOnly = true;
+            StarCount.Width = 259;
+            // 
+            // StarNamesString
+            // 
+            StarNamesString.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            StarNamesString.DataPropertyName = "StarNamesString";
+            StarNamesString.HeaderText = "Назви зірок";
+            StarNamesString.MinimumWidth = 9;
+            StarNamesString.Name = "StarNamesString";
+            StarNamesString.ReadOnly = true;
+            StarNamesString.Width = 187;
+            // 
+            // NotableObjects
+            // 
+            NotableObjects.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            NotableObjects.DataPropertyName = "NotableObjects";
+            NotableObjects.HeaderText = "Об'єкти сузір'я";
+            NotableObjects.MinimumWidth = 9;
+            NotableObjects.Name = "NotableObjects";
+            NotableObjects.ReadOnly = true;
+            NotableObjects.Width = 219;
+            // 
+            // Zodiac
+            // 
+            Zodiac.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Zodiac.DataPropertyName = "Zodiac";
+            Zodiac.HeaderText = "Зодіакальність";
+            Zodiac.MinimumWidth = 9;
+            Zodiac.Name = "Zodiac";
+            Zodiac.ReadOnly = true;
+            Zodiac.Width = 240;
             // 
             // label21
             // 
@@ -364,9 +557,9 @@ namespace Курсова_робота
             label21.ForeColor = SystemColors.ControlDarkDark;
             label21.Location = new Point(1748, 57);
             label21.Name = "label21";
-            label21.Size = new Size(442, 36);
+            label21.Size = new Size(386, 36);
             label21.TabIndex = 59;
-            label21.Text = "                                                             ";
+            label21.Text = "                                                     ";
             // 
             // label20
             // 
@@ -396,7 +589,7 @@ namespace Курсова_робота
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI", 11F);
             label19.ForeColor = SystemColors.Control;
-            label19.Location = new Point(2339, 499);
+            label19.Location = new Point(2307, 674);
             label19.Name = "label19";
             label19.Size = new Size(88, 36);
             label19.TabIndex = 56;
@@ -407,7 +600,7 @@ namespace Курсова_робота
             label18.AutoSize = true;
             label18.Font = new Font("Segoe UI", 11F);
             label18.ForeColor = SystemColors.Control;
-            label18.Location = new Point(2291, 451);
+            label18.Location = new Point(2259, 626);
             label18.Name = "label18";
             label18.Size = new Size(183, 36);
             label18.TabIndex = 55;
@@ -418,7 +611,7 @@ namespace Курсова_робота
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI", 11F);
             label17.ForeColor = SystemColors.Control;
-            label17.Location = new Point(2339, 311);
+            label17.Location = new Point(2307, 486);
             label17.Name = "label17";
             label17.Size = new Size(84, 36);
             label17.TabIndex = 54;
@@ -429,7 +622,7 @@ namespace Курсова_робота
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI", 11F);
             label16.ForeColor = SystemColors.Control;
-            label16.Location = new Point(2308, 264);
+            label16.Location = new Point(2276, 439);
             label16.Name = "label16";
             label16.Size = new Size(155, 36);
             label16.TabIndex = 53;
@@ -450,7 +643,7 @@ namespace Курсова_робота
             // 
             btnVisibleStars.BackColor = SystemColors.GradientInactiveCaption;
             btnVisibleStars.Font = new Font("Segoe UI", 12F);
-            btnVisibleStars.Location = new Point(2262, 61);
+            btnVisibleStars.Location = new Point(2224, 237);
             btnVisibleStars.Name = "btnVisibleStars";
             btnVisibleStars.Size = new Size(243, 104);
             btnVisibleStars.TabIndex = 51;
@@ -462,7 +655,7 @@ namespace Курсова_робота
             // 
             dtpObservationTime.CustomFormat = "MM/dd/yyyy HH:mm";
             dtpObservationTime.Format = DateTimePickerFormat.Custom;
-            dtpObservationTime.Location = new Point(2238, 204);
+            dtpObservationTime.Location = new Point(2206, 379);
             dtpObservationTime.Name = "dtpObservationTime";
             dtpObservationTime.Size = new Size(276, 43);
             dtpObservationTime.TabIndex = 50;
@@ -471,7 +664,7 @@ namespace Курсова_робота
             // 
             txtLongitude.BackColor = SystemColors.InactiveCaptionText;
             txtLongitude.ForeColor = SystemColors.InactiveBorder;
-            txtLongitude.Location = new Point(2299, 551);
+            txtLongitude.Location = new Point(2267, 726);
             txtLongitude.Name = "txtLongitude";
             txtLongitude.PlaceholderText = "Довгота";
             txtLongitude.Size = new Size(175, 43);
@@ -481,7 +674,7 @@ namespace Курсова_робота
             // 
             txtLatitude.BackColor = SystemColors.InactiveCaptionText;
             txtLatitude.ForeColor = SystemColors.InactiveBorder;
-            txtLatitude.Location = new Point(2299, 372);
+            txtLatitude.Location = new Point(2267, 547);
             txtLatitude.Name = "txtLatitude";
             txtLatitude.PlaceholderText = "Широта";
             txtLatitude.Size = new Size(175, 43);
@@ -517,7 +710,7 @@ namespace Курсова_робота
             sortCriteria.Items.AddRange(new object[] { "Зірки за алфавітом", "Зірки за кольорами", "Зірки за сузір'ям", "Найяскравіші зірки", "Зірки з найбільшою масою", "Найбільші зірки", "Найближчі зірки" });
             sortCriteria.Location = new Point(1746, 56);
             sortCriteria.Name = "sortCriteria";
-            sortCriteria.Size = new Size(476, 39);
+            sortCriteria.Size = new Size(424, 39);
             sortCriteria.TabIndex = 45;
             sortCriteria.SelectedIndexChanged += sortCriteria_SelectedIndexChanged;
             // 
@@ -818,195 +1011,6 @@ namespace Курсова_робота
             // openFileDialog1
             // 
             openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // Zodiac
-            // 
-            Zodiac.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Zodiac.DataPropertyName = "Zodiac";
-            Zodiac.HeaderText = "Зодіакальність";
-            Zodiac.MinimumWidth = 9;
-            Zodiac.Name = "Zodiac";
-            Zodiac.ReadOnly = true;
-            Zodiac.Width = 240;
-            // 
-            // NotableObjects
-            // 
-            NotableObjects.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            NotableObjects.DataPropertyName = "NotableObjects";
-            NotableObjects.HeaderText = "Об'єкти сузір'я";
-            NotableObjects.MinimumWidth = 9;
-            NotableObjects.Name = "NotableObjects";
-            NotableObjects.ReadOnly = true;
-            NotableObjects.Width = 219;
-            // 
-            // StarNamesString
-            // 
-            StarNamesString.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            StarNamesString.DataPropertyName = "StarNamesString";
-            StarNamesString.HeaderText = "Назви зірок";
-            StarNamesString.MinimumWidth = 9;
-            StarNamesString.Name = "StarNamesString";
-            StarNamesString.ReadOnly = true;
-            StarNamesString.Width = 187;
-            // 
-            // StarCount
-            // 
-            StarCount.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            StarCount.DataPropertyName = "StarCount";
-            StarCount.HeaderText = "Кількість доданих зірок";
-            StarCount.MinimumWidth = 9;
-            StarCount.Name = "StarCount";
-            StarCount.ReadOnly = true;
-            StarCount.Width = 259;
-            // 
-            // AllStars
-            // 
-            AllStars.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            AllStars.DataPropertyName = "AllStars";
-            AllStars.HeaderText = "Вся кількість зірок";
-            AllStars.MinimumWidth = 9;
-            AllStars.Name = "AllStars";
-            AllStars.ReadOnly = true;
-            AllStars.Width = 257;
-            // 
-            // Names
-            // 
-            Names.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Names.DataPropertyName = "Name";
-            Names.HeaderText = "Назва";
-            Names.MinimumWidth = 9;
-            Names.Name = "Names";
-            Names.ReadOnly = true;
-            Names.Width = 131;
-            // 
-            // Change
-            // 
-            Change.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = Color.Black;
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = Color.Black;
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            Change.DefaultCellStyle = dataGridViewCellStyle5;
-            Change.HeaderText = "...";
-            Change.MinimumWidth = 9;
-            Change.Name = "Change";
-            Change.Text = "...";
-            Change.UseColumnTextForButtonValue = true;
-            Change.Width = 41;
-            // 
-            // colImg
-            // 
-            colImg.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            colImg.DataPropertyName = "Image";
-            colImg.HeaderText = "Зображення";
-            colImg.MinimumWidth = 9;
-            colImg.Name = "colImg";
-            colImg.ReadOnly = true;
-            colImg.Resizable = DataGridViewTriState.True;
-            colImg.SortMode = DataGridViewColumnSortMode.Automatic;
-            colImg.Width = 174;
-            // 
-            // colImagePath
-            // 
-            colImagePath.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colImagePath.DataPropertyName = "ImagePath";
-            colImagePath.HeaderText = "";
-            colImagePath.MinimumWidth = 9;
-            colImagePath.Name = "colImagePath";
-            colImagePath.ReadOnly = true;
-            colImagePath.Visible = false;
-            // 
-            // colName
-            // 
-            colName.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            colName.DataPropertyName = "Name";
-            colName.HeaderText = "Назва";
-            colName.MinimumWidth = 9;
-            colName.Name = "colName";
-            colName.ReadOnly = true;
-            colName.Width = 111;
-            // 
-            // colCol
-            // 
-            colCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            colCol.DataPropertyName = "Color";
-            colCol.HeaderText = "Колір";
-            colCol.MinimumWidth = 9;
-            colCol.Name = "colCol";
-            colCol.ReadOnly = true;
-            colCol.Width = 106;
-            // 
-            // colConstellation
-            // 
-            colConstellation.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            colConstellation.DataPropertyName = "Constellation";
-            colConstellation.HeaderText = "Сузір'я";
-            colConstellation.MinimumWidth = 9;
-            colConstellation.Name = "colConstellation";
-            colConstellation.ReadOnly = true;
-            colConstellation.Width = 119;
-            // 
-            // colMagnitude
-            // 
-            colMagnitude.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            colMagnitude.DataPropertyName = "ApparentMagnitude";
-            colMagnitude.HeaderText = "Зоряна величина";
-            colMagnitude.MinimumWidth = 9;
-            colMagnitude.Name = "colMagnitude";
-            colMagnitude.ReadOnly = true;
-            colMagnitude.Width = 203;
-            // 
-            // colMass
-            // 
-            colMass.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            colMass.DataPropertyName = "Mass";
-            colMass.FillWeight = 64F;
-            colMass.HeaderText = "Маса (M⊙)";
-            colMass.MinimumWidth = 9;
-            colMass.Name = "colMass";
-            colMass.ReadOnly = true;
-            colMass.Width = 148;
-            // 
-            // colRad
-            // 
-            colRad.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            colRad.DataPropertyName = "Radius";
-            colRad.HeaderText = "Радіус (R⊙)";
-            colRad.MinimumWidth = 9;
-            colRad.Name = "colRad";
-            colRad.ReadOnly = true;
-            colRad.Width = 149;
-            // 
-            // coldistance
-            // 
-            coldistance.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            coldistance.DataPropertyName = "Distance";
-            coldistance.HeaderText = "Відстань (світ. р)";
-            coldistance.MinimumWidth = 9;
-            coldistance.Name = "coldistance";
-            coldistance.ReadOnly = true;
-            coldistance.Width = 177;
-            // 
-            // colCoordinates
-            // 
-            colCoordinates.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            colCoordinates.DataPropertyName = "Coordinates";
-            colCoordinates.HeaderText = "Схилення (° ′ ″)";
-            colCoordinates.MinimumWidth = 9;
-            colCoordinates.Name = "colCoordinates";
-            colCoordinates.ReadOnly = true;
-            colCoordinates.Width = 163;
-            // 
-            // ColRightAscension
-            // 
-            ColRightAscension.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            ColRightAscension.DataPropertyName = "RightAscension";
-            ColRightAscension.HeaderText = "Пряме піднесення (°)";
-            ColRightAscension.MinimumWidth = 9;
-            ColRightAscension.Name = "ColRightAscension";
-            ColRightAscension.ReadOnly = true;
-            ColRightAscension.Width = 212;
             // 
             // Form1
             // 

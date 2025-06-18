@@ -91,7 +91,6 @@ namespace Курсова_робота
         {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = Star.Stars;
-            dataGridView1.ClearSelection();
         }
 
         private void btnAddPhoto_Click(object sender, EventArgs e)
@@ -402,5 +401,6 @@ namespace Курсова_робота
                 e.Cancel = false;
             }
         }
+
     }
 }

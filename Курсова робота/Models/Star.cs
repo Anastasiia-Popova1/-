@@ -319,7 +319,7 @@ namespace Курсова_робота.Models
                     break;
 
                 default:
-                    sortedStars = Star.Stars.ToList(); // Без сортировки
+                    sortedStars = Star.Stars.ToList(); 
                     break;
             }
             
